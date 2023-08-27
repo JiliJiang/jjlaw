@@ -382,14 +382,47 @@
   
   /* CONTACT STYLES START */
   .contact {
-    background: rgb(29, 1, 1);
+    background: rgba(24, 2, 2, 0.642);
     background-attachment: fixed;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
-    
+    margin: -1% 1% 1% 1%;
+    padding: 5%;
+    width: 100%;
+    background-image: url('../images/hero.jpg');
+
+  }
+
+  #contact-form{
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 20px;
+    color: aquamarine;
+  }
+
+  .contact-btn{
+    width: 150px;
+    height:50px;
+    font-family: cursive, sans;
+    font-size: 18px;
+    background-color: aqua;
+    border-radius: 5%;
+    box-shadow: rgba(0,0,0,0.8);
+    margin-left: 150px;
   }
   
+  .contact-btn:hover { 
+    transform: scale(1.1); 
+    filter:brightness(130%);
+    border-radius: 10%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  }
+
+
   .contact h3 {
     font-size: 28px;
     font-family: cursive;
@@ -403,14 +436,17 @@
   }
   
   .contact-info {
-    font-size: 20px;
-    font-family: sans-serif;
-    color: white;
+    font-size: 24px;
+    font-family: cursive;
+    color: rgb(44, 4, 4);
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    flex:2 50%;
+    flex: 1 50%;
+    border-radius: 5px;
+    padding: 0.5%;
+    box-shadow: rgba(0,0,0,0.8);
   }
   
   .contact-info a {
@@ -491,7 +527,7 @@
   }
   
   /* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
-  @media screen and (max-width: 980px) {
+  @media screen and (max-width: 1380px) {
   
     header {
       padding-bottom: 0;
@@ -523,6 +559,41 @@
     .project {
       flex: 0 70%;
     }
+
+    #contact-form{
+      width: 50%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      font-size: 20px;
+      color: aquamarine;
+      flex-direction: column;
+    }
+
+    .contact-info {
+      font-size: 22px;
+      font-family: cursive;
+      color: rgb(44, 4, 4);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      flex: 1 50%;
+      border-radius: 5px;
+      padding: 0.5%;
+      box-shadow: rgba(0,0,0,0.8);
+    }
+
+    .contact-btn{
+      width: 120px;
+      height:50px;
+      font-family: cursive, sans;
+      font-size: 16px;
+      background-color: aqua;
+      border-radius: 5%;
+      box-shadow: rgba(0,0,0,0.8);
+      margin-left: 35%;
+    }
   }
     
   
@@ -546,6 +617,8 @@
     .project {
       flex: 0 80%;
     }
+
+    
     
   }
   

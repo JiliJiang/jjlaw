@@ -422,7 +422,9 @@
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
   }
 
-
+.messageSent{
+  color: black;
+}
   .contact h3 {
     font-size: 28px;
     font-family: cursive;
@@ -560,6 +562,15 @@
       flex: 0 70%;
     }
 
+    .contact{
+      flex-direction: column;
+    }
+
+    #messageSent{
+      margin-top: 20px;
+      color: white
+    }
+
     #contact-form{
       width: 50%;
       display: flex;
@@ -573,7 +584,6 @@
     .contact-info {
       font-size: 22px;
       font-family: cursive;
-      color: rgb(44, 4, 4);
       display: flex;
       flex-wrap: wrap;
       justify-content: center;

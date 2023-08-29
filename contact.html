@@ -8,31 +8,33 @@
 
     <title>Contact</title>
 
-    
+
     <link rel="stylesheet" href="./assets/css/styles.css">
-    
+
     <!-- Custom styles for this template -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script type="text/javascript">
-        (function() {
+        (function () {
             // https://dashboard.emailjs.com/admin/account
             emailjs.init('nRTm6yqP4fE1PvTX3');
         })();
     </script>
     <script type="text/javascript">
-        window.onload = function() {
-            document.getElementById('contact-form').addEventListener('submit', function(event) {
+        window.onload = function () {
+            document.getElementById('contact-form').addEventListener('submit', function (event) {
                 event.preventDefault();
+                document.getElementById('messageSent').style.display = 'block';
                 // generate a five digit number for the contact_number variable
                 this.contact_number.value = Math.random() * 100000 | 0;
                 // these IDs from the previous steps
                 emailjs.sendForm('service_8fa6sia', 'template_ihn9to3', this)
-                    .then(function() {
+                    .then(function () {
                         console.log('SUCCESS!');
                         document.getElementById('messageSent').style.display = 'block';
+                        document.getElementById('messageSent').innerHTML = 'Message Sent!';                       
                         setTimeout(function() {window.location.assign('index.html')}, 2000)
-                        
-                    }, function(error) {
+
+                    }, function (error) {
                         console.log('FAILED...', error);
                     });
             });
@@ -48,6 +50,7 @@
         </h1>
         <nav>
             <ul>
+                <li><a href="index.html">Home</a></li>
                 <li>
                     <a href="https://wpshowcase.net">About Me</a>
                 </li>
@@ -57,10 +60,7 @@
                 <li>
                     <a href="https://jilijiang.github.io/My-Portfolio-REACT/">Portfolio</a>
                 </li>
-                <li>
-                    <a href="#contact">Contact</a>
-                </li>
-
+                
 
             </ul>
         </nav>
@@ -77,26 +77,30 @@
     <main>
 
         <div class="contact">
-        <form id="contact-form">
-            <input type="hidden" name="contact_number">
-            <label class="contact-info">Name</label>
-            <input class="contact-info" style="margin-bottom: 10px;" type="text" name="name">
-            <br />
-            <label class="contact-info">Email</label>
-            <input class="contact-info" style="margin-bottom: 10px;" type="email" name="email">
-            <br />
-            <label class="contact-info">Message</label>
-            <textarea class="contact-info" style="margin-bottom: 10px;" name="message" style="height: 150px"></textarea>
-            <br />
-            <input class="contact-btn" style="margin-top: 10px;" type="submit" value="Send">
-        </form>
-        <h3 id="messageSent" style="display: none; color:black"> You Message has been Sent !</h3>
+            <form id="contact-form">
+                <input type="hidden" name="contact_number">
+                <label class="contact-info">Name</label>
+                <input class="contact-info" style="margin-bottom: 10px;" type="text" name="name">
+                <br />
+                <label class="contact-info">Email</label>
+                <input class="contact-info" style="margin-bottom: 10px;" type="email" name="email">
+                <br />
+                <label class="contact-info">Message</label>
+                <textarea class="contact-info" style="margin-bottom: 10px;" name="message"
+                    style="height: 150px"></textarea>
+                <br />
+                <input class="contact-btn" style="margin-top: 10px;" type="submit" value="Send">
+            </form>
+
+            <h3 id="messageSent" style="display: none; color:black"> Sending message ... </h3>
+            
+
         </div>
         <section style="display: flex; background-color: black; justify-content: center; color: white">
 
             <div id="contact" style="font-family: Times New Roman; margin-right: 20px">
                 <h5 style="font-size: 18px;"> <span>&copy;</span> Jili Jiang 2023, All Rights Reserved.</h5>
- 
+
             </div>
             <svg style="margin-right: 20px" xmlns="http://www.w3.org/2000/svg" width="25" height="25"
                 fill="currentColor" class="bi bi-vector-pen" viewBox="0 0 16 16">

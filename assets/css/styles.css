@@ -494,6 +494,21 @@ section {
   color: darkblue;
 }
 
+.disclaimer{
+  background-color: rgba(242, 242, 234, 0.992);
+  margin-bottom: 2%;
+  margin-top: -5%;
+  padding: 1%;
+  border-radius: 10px;
+}
+
+.disclaimer p{
+  font-size: 1.1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  text-align: center;
+}
+
 /* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
 @media screen and (max-width: 1380px) {
   header {

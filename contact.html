@@ -405,7 +405,7 @@
                         document.getElementById('subscriptionButton').value = 'Subscribed! Please check your email.';
 
                     }, (err) => {
-                        btn.value = 'Send Email';
+                        document.getElementById('subscriptionButton').value = 'Send Email';
                         alert(JSON.stringify(err));
                     });
             });

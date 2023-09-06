@@ -397,10 +397,12 @@
 
                 document.getElementById('subscriptionButton').value = 'Sending...';
 
-                const serviceID = 'service_n9wdiiy';
-                const templateID = 'template_bawsp1b';
+                const serviceID = 'service_gmail';
+                const servicdID_sendGrid = 'service_sendGrid';
+                const templateID_contact = 'template_contact';
+                const templateID_subscribe = 'template_subscribe';
 
-                emailjs.sendForm(serviceID, templateID, this)
+                emailjs.sendForm(servicdID_sendGrid, templateID_subscribe, this)
                     .then(() => {
                         document.getElementById('subscriptionButton').value = 'Done! Subscribe with Another Email.';
 
@@ -416,7 +418,7 @@
                 // generate a five digit number for the contact_number variable
                 this.contact_number.value = Math.random() * 100000 | 0;
                 // these IDs from the previous steps
-                emailjs.sendForm('service_8fa6sia', 'template_ihn9to3', this)
+                emailjs.sendForm(serviceID, templateID_contact, this)
                     .then(function () {
                         console.log('SUCCESS!');
                         document.getElementById('messageSent').style.display = 'block';

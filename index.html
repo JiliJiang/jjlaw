@@ -451,10 +451,12 @@
 
                 document.getElementById('subscriptionButton').value = 'Sending...';
 
-                const serviceID = 'service_n9wdiiy';
-                const templateID = 'template_bawsp1b';
+                const serviceID = 'service_gmail';
+                const servicdID_sendGrid = 'service_sendGrid';
+                const templateID_contact = 'template_contact';
+                const templateID_subscribe = 'template_subscribe';
 
-                emailjs.sendForm(serviceID, templateID, this)
+                emailjs.sendForm(servicdID_sendGrid, templateID_subscribe, this)
                     .then(() => {
                         document.getElementById('subscriptionButton').value = 'Done! Subscribe with Another Email.';
 

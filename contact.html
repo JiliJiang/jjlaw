@@ -402,7 +402,7 @@
 
                 emailjs.sendForm(serviceID, templateID, this)
                     .then(() => {
-                        document.getElementById('subscriptionButton').value = 'Subscribed! Please check your email.';
+                        document.getElementById('subscriptionButton').value = 'Done! Subscribe with Another Email.';
 
                     }, (err) => {
                         document.getElementById('subscriptionButton').value = 'Send Email';

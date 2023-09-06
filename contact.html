@@ -92,35 +92,8 @@
     <link href="./assets/css/carousel.css" rel="stylesheet">
     <link href="navbars.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script type="text/javascript">
-        (function () {
-            // https://dashboard.emailjs.com/admin/account
-            emailjs.init('nRTm6yqP4fE1PvTX3');
-        })();
-    </script>
-    <script type="text/javascript">
-        window.onload = function () {
-            document.getElementById('contact-form').addEventListener('submit', function (event) {
-                event.preventDefault();
-                document.getElementById('messageSent').style.display = 'block';
-                // generate a five digit number for the contact_number variable
-                this.contact_number.value = Math.random() * 100000 | 0;
-                // these IDs from the previous steps
-                emailjs.sendForm('service_8fa6sia', 'template_ihn9to3', this)
-                    .then(function () {
-                        console.log('SUCCESS!');
-                        document.getElementById('messageSent').style.display = 'block';
-                        document.getElementById('messageSent').innerHTML = 'Message Sent!';
-                        setTimeout(function () { window.location.assign('index.html') }, 2000)
 
-                    }, function (error) {
-                        console.log('FAILED...', error);
-                    });
-            });
-        }
-    </script>
+
 
 
 
@@ -297,7 +270,10 @@
             <footer class="py-5">
                 <div class="row">
                     <div class="disclaimer" style="margin-top: -2%;">
-                        <p>The information provided on this website does not, and is not intended to, constitute legal advice; instead, all information, content, and materials available on this site are for general informational purposes only.  Information on this website may not constitute the most up-to-date legal or other information. </p>
+                        <p>The information provided on this website does not, and is not intended to, constitute legal
+                            advice; instead, all information, content, and materials available on this site are for
+                            general informational purposes only. Information on this website may not constitute the most
+                            up-to-date legal or other information. </p>
                     </div>
                     <div class="col-6 col-md-2 mb-3">
                         <h5>About Me</h5>
@@ -357,28 +333,41 @@
                     </div>
 
                     <div class="col-md-5 offset-md-1 mb-3">
-                        <form>
+                        <form id="subscriptionForm">
                             <h5>Subscribe to my newsletter</h5>
-                            <p style="font-style: italic;">Monthly digest of what's new and exciting in the tech and law fields.</p>
+                            <p style="font-style: italic;">Monthly digest of what's new and exciting in the tech and law
+                                fields.</p>
                             <div class="d-flex flex-column flex-sm-row w-100 gap-2">
-                                <label for="newsletter1" class="visually-hidden">Email address</label>
-                                <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
-                                <button class="btn btn-primary" type="button">Subscribe</button>
+
+                                <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+                                    <label for="subscriber" class="visually-hidden">Email address</label>
+                                    <input class="form-control" placeholder="Email address" type="text"
+                                        name="subscriber" id="subscriber">
+                                    <input class="btn btn-primary" type="submit" id="subscriptionButton"
+                                        value="Subscribe">
+                                </div>
+
                             </div>
+
                         </form>
                     </div>
                 </div>
 
                 <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
-                    <p style="font-weight: bold; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">&copy; 2023 Jili Jiang. All rights reserved.</p>
+                    <p style="font-weight: bold; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">&copy;
+                        2023 Jili Jiang. All rights reserved.</p>
                     <ul class="list-unstyled d-flex">
-                        <li class="ms-3"><a class="link-body-emphasis" href="https://twitter.com/JiliJiang933260"><svg class="bi" width="24" height="24">
+                        <li class="ms-3"><a class="link-body-emphasis" href="https://twitter.com/JiliJiang933260"><svg
+                                    class="bi" width="24" height="24">
                                     <use xlink:href="#twitter" />
                                 </svg></a></li>
-                        <li class="ms-3"><a class="link-body-emphasis" href="https://www.instagram.com/jili_1203/"><svg class="bi" width="24" height="24">
+                        <li class="ms-3"><a class="link-body-emphasis" href="https://www.instagram.com/jili_1203/"><svg
+                                    class="bi" width="24" height="24">
                                     <use xlink:href="#instagram" />
                                 </svg></a></li>
-                        <li class="ms-3"><a class="link-body-emphasis" href="https://www.facebook.com/profile.php?id=61550836590157"><svg class="bi" width="24" height="24">
+                        <li class="ms-3"><a class="link-body-emphasis"
+                                href="https://www.facebook.com/profile.php?id=61550836590157"><svg class="bi" width="24"
+                                    height="24">
                                     <use xlink:href="#facebook" />
                                 </svg></a></li>
                     </ul>
@@ -395,6 +384,53 @@
         integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        emailjs.init('nRTm6yqP4fE1PvTX3')
+    </script>
+
+    <script type="text/javascript">
+        window.onload = function () {
+            document.querySelector('#subscriptionForm').addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                document.getElementById('subscriptionButton').value = 'Sending...';
+
+                const serviceID = 'service_n9wdiiy';
+                const templateID = 'template_bawsp1b';
+
+                emailjs.sendForm(serviceID, templateID, this)
+                    .then(() => {
+                        document.getElementById('subscriptionButton').value = 'Subscribed! Please check your email.';
+
+                    }, (err) => {
+                        btn.value = 'Send Email';
+                        alert(JSON.stringify(err));
+                    });
+            });
+
+            document.getElementById('contact-form').addEventListener('submit', function (event) {
+                event.preventDefault();
+                document.getElementById('messageSent').style.display = 'block';
+                // generate a five digit number for the contact_number variable
+                this.contact_number.value = Math.random() * 100000 | 0;
+                // these IDs from the previous steps
+                emailjs.sendForm('service_8fa6sia', 'template_ihn9to3', this)
+                    .then(function () {
+                        console.log('SUCCESS!');
+                        document.getElementById('messageSent').style.display = 'block';
+                        document.getElementById('messageSent').innerHTML = 'Message Sent!';
+                        setTimeout(function () { window.location.assign('index.html') }, 2000)
+
+                    }, function (error) {
+                        console.log('FAILED...', error);
+                    });
+            });
+        }          
+    </script>
+
+
 </body>
 
 </html>
